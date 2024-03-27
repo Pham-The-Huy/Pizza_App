@@ -163,11 +163,11 @@ class HomeScreen extends StatelessWidget {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else {
+            }
+            else {
               return const Center(
                 child: Text(
-                    "An error has occured..."
-                ),
+                  'dm'),
               );
             }
           },

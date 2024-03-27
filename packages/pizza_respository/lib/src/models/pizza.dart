@@ -5,11 +5,11 @@ class Pizza {
   String pizzaId;
   String picture;
   bool isVeg;
-  int spicy;
+  num spicy;
   String name;
   String description;
-  int price;
-  int discount;
+  num price;
+  num discount;
   Macros macros;
 
   Pizza({
