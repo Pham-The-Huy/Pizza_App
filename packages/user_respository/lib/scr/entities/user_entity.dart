@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class MyUserEntity {
   String userId;
   String email;
@@ -13,7 +11,7 @@ class MyUserEntity {
     required this.hasActiveCart,
   });
 
-  Map<String, Object> toDocument() {
+  Map<String, Object?> toDocument() {
     return {
       'userId': userId,
       'email': email,

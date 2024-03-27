@@ -1,1 +1,1 @@
-export 'pizza_entities.dart';
+export 'pizza_entity.dart';

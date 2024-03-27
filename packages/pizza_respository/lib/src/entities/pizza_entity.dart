@@ -1,6 +1,6 @@
 import 'package:pizza_repository/src/entities/macros_entity.dart';
 
-import '../models/macros.dart';
+import '../models/models.dart';
 
 class PizzaEntity {
   String pizzaId;
@@ -25,7 +25,7 @@ class PizzaEntity {
     required this.macros,
   });
 
-  Map<String, dynamic> toDocument() {
+  Map<String, Object?> toDocument() {
     return {
       'pizzaId': pizzaId,
       'picture': picture,
@@ -39,7 +39,25 @@ class PizzaEntity {
     };
   }
 
-  static PizzaEntity fromDocument(Map<String, dynamic> doc) {
+  // static PizzaEntity fromDocument(Map<String, dynamic> doc) {
+  //   return PizzaEntity(
+  //     pizzaId: doc['pizzaId'],
+  //     picture: doc['picture'],
+  //     isVeg: doc['isVeg'],
+  //     spicy: doc['spicy'],
+  //     name: doc['name'],
+  //     description: doc['description'],
+  //     price: doc['price'],
+  //     discount: doc['discount'],
+  //     macros: Macros.fromEntity(MacrosEntity.fromDocument(doc['macros'])),
+  //   );
+  // }
+
+  static PizzaEntity fromDocument(Map<String, dynamic>? doc) {
+    if (doc == null) {
+      throw ArgumentError("Document cannot be null.");
+    }
+
     return PizzaEntity(
       pizzaId: doc['pizzaId'],
       picture: doc['picture'],
@@ -49,7 +67,7 @@ class PizzaEntity {
       description: doc['description'],
       price: doc['price'],
       discount: doc['discount'],
-      macros: Macros.fromEntity(MacrosEntity .fromDocument(doc['macros'])),
+      macros: Macros.fromEntity(MacrosEntity.fromDocument(doc['macros'])),
     );
   }
 }

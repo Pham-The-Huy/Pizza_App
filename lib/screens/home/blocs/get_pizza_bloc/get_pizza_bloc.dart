@@ -12,7 +12,7 @@ class GetPizzaBloc extends Bloc<GetPizzaEvent, GetPizzaState> {
     on<GetPizza>((event, emit) async {
       emit(GetPizzaLoading());
       try {
-        List<Pizza> pizzas = await _pizzaRepo.getPizza();
+        List<Pizza> pizzas = await _pizzaRepo.getPizzas();
         emit(GetPizzaSuccess(pizzas));
       } catch (e) {
         emit(GetPizzaFailure());

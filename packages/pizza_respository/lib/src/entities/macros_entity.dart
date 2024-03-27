@@ -11,7 +11,7 @@ class MacrosEntity {
     required this.carbs,
   });
 
-  Map<String, dynamic> toDocument() {
+  Map<String, Object?> toDocument() {
     return {
       'calories': calories,
       'proteins': proteins,
@@ -20,7 +20,11 @@ class MacrosEntity {
     };
   }
 
-  static MacrosEntity fromDocument(Map<String, dynamic> doc) {
+  static MacrosEntity fromDocument(Map<String, dynamic>? doc) {
+    if (doc == null) {
+      throw ArgumentError("Document cannot be null.");
+    }
+
     return MacrosEntity(
       calories: doc['calories'],
       proteins: doc['proteins'],
