@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_app/screens/auth/blocs/sign_in_bloc/sign_in_bloc.dart';
 import 'package:food_app/screens/home/blocs/get_pizza_bloc/get_pizza_bloc.dart';
 import 'package:food_app/screens/home/views/details_screen.dart';
+import 'package:food_app/Widgets/DrawerWidget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -26,6 +27,15 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(CupertinoIcons.cart)),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DrawerWidget()),
+              );
+            },
+            icon: const Icon(CupertinoIcons.bars),
+          ),
           IconButton(
               onPressed: () {
                 context.read<SignInBloc>().add(SignOutRequired());
