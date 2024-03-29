@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_app/Pages/CartPage.dart';
+import 'package:food_app/Widgets/CartBottomNavBar.dart';
 import 'package:food_app/screens/auth/blocs/sign_in_bloc/sign_in_bloc.dart';
 import 'package:food_app/screens/home/blocs/get_pizza_bloc/get_pizza_bloc.dart';
 import 'package:food_app/screens/home/views/details_screen.dart';
@@ -26,7 +28,15 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(CupertinoIcons.cart)),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CartPage()),
+              );
+            },
+            icon: const Icon(CupertinoIcons.cart),
+          ),
           IconButton(
             onPressed: () {
               Navigator.push(
@@ -159,16 +169,19 @@ class HomeScreen extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                    IconButton(onPressed: () {}, icon: const Icon(CupertinoIcons.add_circled_solid))
+                                    IconButton(onPressed: () {
+                                    }, icon: const Icon(CupertinoIcons.add_circled_solid))
                                   ],
                                 )
                             )
+
                           ],
                         ),
                       ),
                     );
                   }
               );
+
             } else if(state is GetPizzaLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
@@ -177,8 +190,9 @@ class HomeScreen extends StatelessWidget {
             else {
               return const Center(
                 child: Text(
-                  'dm'),
+                  'ERROR'),
               );
+
             }
           },
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pizza_repository/pizza_repository.dart';
+import '../../../Pages/CartPage.dart';
 import '../../../components/macro.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -132,7 +133,10 @@ class DetailsScreen extends StatelessWidget {
                       height: 50,
                       child: TextButton(
                         onPressed: () {
-
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => CartPage()),
+                          );
                         },
                         style: TextButton.styleFrom(
                             elevation: 3.0,
